@@ -27,8 +27,11 @@ function App() {
   if(Update){
     setToDos(current=>current.map((ToDo)=>{
       if(ToDos.indexOf(ToDo)===SelectedItemIndex){
+        console.log({...ToDo, Title:ToDoTitleValue, Body:ToDoBodyValue})
         return{...ToDo, Title:ToDoTitleValue, Body:ToDoBodyValue}
       }
+
+      return ToDo;
     }))
   }
   else{
@@ -38,6 +41,7 @@ function App() {
   setToDoTitleValue("")
   setToDoBodyValue("")
   setOpen(false)
+  setUpdate(false)
   
  }
  const handleDeleteToDo=(index) => {
